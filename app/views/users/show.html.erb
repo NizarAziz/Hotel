@@ -1,0 +1,12 @@
+<h1><%= @user.name %> Profile</h1>
+<p> Name: <%=@user.name %> </p>
+<p> E-mail: <%=@user.email %> </p>
+<p> Headline: <%=@user.headline %> </p>
+<p> Profile: <%= @user.profile %></p>
+<% if current_user.admin? == true %>
+  <p> ADMIN: <%=@user.admin %> </p>
+<% end %>
+<% if (user_signed_in?) && (current_user.admin? || current_user == @user) %>
+  <%= link_to('Edit User', edit_user_path) %>
+<% else %>
+<% end %>
